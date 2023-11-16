@@ -32,7 +32,7 @@ def yahoo():
 
     list_of_topics = []
 
-    for num in range(8):
+    for num in range(4):
         list_of_topics.append(yahoo[num]['title'])
 
     return(list_of_topics)

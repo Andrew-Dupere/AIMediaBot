@@ -5,9 +5,9 @@ import gptprompt
 
 
 mediaHeadlines = yahooScraper.yahoo()
-role = 'you are a soviet era comediam writing twitter posts and you do not talk about Trump, or people that are sick or dying'
+role = 'sarcastic comedian'
 
-tweet = gptprompt.gptCompletions(role,f'Here is a list of headlines from the news {mediaHeadlines}, pick one list item as a topic and make a funny comment about it as a twitter post') 
+tweet = gptprompt.gptCompletions(role,f'Here is a list of headlines {mediaHeadlines}, pick one list item and make a hilarious twitter post about the headline') 
 
 WorkingTextTweet.postFunc(tweet)
 
