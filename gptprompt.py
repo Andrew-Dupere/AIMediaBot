@@ -1,21 +1,35 @@
 # This code is for v1 of the openai package: pypi.org/project/openai
 import os
 import openai
+from openai import OpenAI
+ 
 from dotenv import load_dotenv
 load_dotenv()
 
-openai.api_key = os.getenv('OPENAI_API_KEY')
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+openai.api_key = OPENAI_API_KEY
 
 
 
-# client = OpenAI()
 
-# response = client.chat.completions.create(
-#   model="gpt-4",
-#   messages=[],
-#   temperature=0,
-#   max_tokens=1024
-# )
+client = OpenAI(
+    api_key=os.environ['OPENAI_API_KEY']
+)
+
+#this is the function used by the main script
+def gptClientCompletions(role, prompt):
+    response = client.chat.completions.create(
+    model="gpt-4",
+    messages=[
+        {
+            "role": role,
+            "content": prompt,
+        },
+    ],
+
+)
+    return response.choices[0].message.content
+
 
 def gptCompletions(role, prompt):
 
@@ -28,6 +42,7 @@ def gptCompletions(role, prompt):
     )
     return(response.choices[0].message.content)
 
-# print(gptCompletions('you are writing a twitter post','make a joke about joseph stalin'))
 
 
+
+print(gptClientCompletions('user','what was the biggest city in china in the year 1000?'))

@@ -19,11 +19,11 @@ role = 'Financial Analayst/Journalist writing cynical but funny tweets about the
 
 for item in stockObject:
 
-    tweet = gptprompt.gptCompletions(role, f'write an a twitter post about this: f{item},keep the character limit below 280')
+    tweet = gptprompt.gptClientCompletions('user', f'you are a cynical and funny financial analyst, write a less than 270 character twitter post about: {item}')
 
     WorkingTextTweet.postFunc(tweet.strip('"'))
     
-    time.sleep(180)
-    print(f'tweet about {item} sent')
+    time.sleep(1800)
+    
     
 
