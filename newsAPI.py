@@ -6,9 +6,11 @@ import requests
 from datetime import datetime
 import json
 
+import secrets
+
 def dataPull():
 
-    key = '819a7132af434afba91a7739c54ab02f'
+    key = secrets.newsapikey
 
     topic = 'Stock Market'
 
